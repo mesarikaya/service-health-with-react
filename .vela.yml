@@ -1,0 +1,137 @@
+
+version: "1"
+stages:
+  # [START build]
+  build:
+    steps:
+      # Build Docker Image for dev
+      - name: build-dev
+        image: docker-utilities.binrepo.cglcloud.in/enablementtools/docker-plugin:3-stable
+        ruleset:
+          if:
+            branch: [develop]
+            event: [push, pull_request]
+        parameters:
+          dockerfile: ./docker/dev/Dockerfile
+          skip_existing: true
+          repo: techhealth_fe
+          tags: 'dev-${VELA_BUILD_COMMIT:0:7}'
+      
+      # Build Docker Image for stage
+      - name: build-stage
+        image: docker-utilities.binrepo.cglcloud.in/enablementtools/docker-plugin:3-stable
+        ruleset:
+          if:
+            branch: [stage]
+            event: [push, pull_request]
+        parameters:
+          dockerfile: ./docker/stage/Dockerfile
+          skip_existing: true
+          repo: techhealth_fe
+          tags: 'stage-${VELA_BUILD_COMMIT:0:7}'
+
+      # Build Docker Image for prod
+      - name: build-prod
+        image: docker-utilities.binrepo.cglcloud.in/enablementtools/docker-plugin:3-stable
+        ruleset:
+          if:
+            branch: [main]
+            event: [push, pull_request]
+        parameters:
+          dockerfile: ./docker/prod/Dockerfile
+          skip_existing: true
+          repo: techhealth_fe
+          tags: 'prod-${VELA_BUILD_COMMIT:0:7}'
+
+  # [START scan]
+  scan:
+    steps:
+      # Run Veracode policy scan for codebase
+      - name: code-scan-veracode-policy-scan
+        image: openjdk:8
+        ruleset:
+          operator: and
+          matcher: regexp
+          if:
+            branch: [develop, stage, main]
+            event: [pull_request]
+        secrets: [ veracode_user, veracode_pass ]
+        commands:
+          - apt-get -qq update && apt-get -qq --assume-yes install wget zip
+          - git archive --format=zip HEAD -o ${VELA_REPO_NAME}-veracode-${VELA_BUILD_NUMBER}.zip
+          - wget https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/21.2.7.4/vosp-api-wrappers-java-21.2.7.4.jar -O veracode-api-jar.jar
+          - java -jar veracode-api-jar.jar -action uploadandscan -vid $VERACODE_USER -vkey
+            $VERACODE_PASS -appname 'TechDebt - Frontend' -filepath ${VELA_REPO_NAME}-veracode-${VELA_BUILD_NUMBER}.zip
+            -createprofile false -selectedpreviously true -version ${VELA_REPO_NAME}-${VELA_BUILD_NUMBER} -scantimeout
+            60 || true
+  # [END scan]     
+
+  #captain build
+  deploy-dev:
+    needs:
+      - build
+      - scan
+    steps:   
+      - name: captain-plan-dev
+        image: docker-utilities.binrepo.cglcloud.in/captain:1-stable
+        ruleset:
+          if:
+            branch: [develop]
+            event: [push, tag]
+        parameters:
+          captain_file: captain/.captain.yml
+          env: dev
+          edge_auth: false
+          run_apply: true
+          version: 'dev-${VELA_BUILD_COMMIT:0:7}'
+
+  
+  #captain build
+  deploy-stage:
+    needs:
+      - build
+      - scan
+    steps:   
+      - name: captain-plan-stage
+        image: docker-utilities.binrepo.cglcloud.in/captain:1-stable
+        ruleset:
+          if:
+            branch: [stage]
+            event: [push, tag]
+        parameters:
+          captain_file: captain/.captain.yml
+          env: stage
+          edge_auth: false
+          run_apply: true
+          version: 'stage-${VELA_BUILD_COMMIT:0:7}'
+
+  
+  #captain build
+  deploy-prod:
+    needs:
+      - build
+      - scan
+    steps:   
+      - name: captain-plan-prod
+        image: docker-utilities.binrepo.cglcloud.in/captain:1-stable
+        ruleset:
+          if:
+            branch: [main]
+            event: [push, tag]
+        parameters:
+          captain_file: captain/.captain.yml
+          env: prod
+          edge_auth: false
+          run_apply: true
+          version: 'prod-${VELA_BUILD_COMMIT:0:7}'
+
+
+secrets:
+  - name: veracode_user
+    key: Tech-Services/TechDebt3.0-FE/veracode_user
+    engine: native
+    type: repo
+  - name: veracode_pass
+    key: Tech-Services/TechDebt3.0-FE/veracode_pass
+    engine: native
+    type: repo

@@ -1,0 +1,65 @@
+kind: kubernetes
+app: techhealth
+type: web
+team: techhealt
+docker_image: techhealth_fe
+internal: true
+replicas: 1
+container_port: 8080
+healthcheck:
+  path: /nginx-health
+  initialDelaySeconds: 30
+  timeoutSeconds: 120
+  periodSeconds: 120
+  failureThreshold: 10
+revisionHistoryLimit: 10
+dns:
+  zone: cglcloud
+  name: techhealth
+configs: #(Required)
+- name: nginx-local #(Required)
+  type: empty-volume #(Required)
+  mountPath: /var/cache/nginx/ #(Required)
+  containers: ["techhealth"] #(Required): Change this to be the same as app name
+envvars:
+  dev:
+    REACT_APP_NODE_ENV: "dev"
+  stage:
+    REACT_APP_NODE_ENV: "stage"
+  prod:
+    REACT_APP_NODE_ENV: "prod"
+headers:
+  csp:
+    dev: # dev, stage, prod, or default
+      script-src:
+        self: true
+        unsafe-inline: true
+      style-src:
+        self: true
+        unsafe-inline: true
+        sources:
+          - https://fonts.googleapis.com
+      img-src:
+        self: true
+        sources:
+          - http://www.w3.org
+      manifest-src:
+        self: true
+        sources: 
+          - https://techhealth.dev.somecloud.in/
+          - https://techhealth.stage.somecloud.in/
+          - https://techhealth.somecloud.com/
+      connect-src:
+        self: true
+        sources:
+          - https://techhealthapi.dev.somecloud.in
+          - https://login.microsoftonline.com
+          - https://api-dev.dev.dev-somecloud.com
+          - https://techhealthapi.stage.somecloud.in
+          - https://api-stage.stage.somecloud.in
+          - https://techhealthapi.somecloud.com
+          - https://api.somecloud.com
+      font-src:
+        self: true
+        sources: 
+          - https://fonts.gstatic.com

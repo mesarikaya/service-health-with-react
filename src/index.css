@@ -1,0 +1,487 @@
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.MuiTypography-root {
+  font-family: "IBM Plex Sans", sans-serif !important;
+}
+
+.ml-auto {
+  font-family: "IBM Plex Sans", sans-serif !important;
+}
+.loader {
+  padding-top: 1rem;
+  position: absolute;
+  background: #0000001a;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  display: flex;
+  align-items: center;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.tableWrapper .ReactVirtualized__Table__headerTruncatedText {
+  display: inline-block;
+  max-width: 100%;
+  white-space: unset;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: capitalize;
+  height: auto;
+  text-align: center;
+}
+
+.tableWrapper .ReactVirtualized__Table__headerRow {
+  height: auto !important;
+  margin-bottom: 8px;
+}
+.tableWrapper .mainRow {
+  color: inherit;
+  vertical-align: middle;
+  outline: 0px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px,
+    rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px;
+  /* position: relative !important; */
+  font-size: 14px;
+  /* top:0px !important;
+  margin-top: 20px; */
+  /* text-transform: lowercase; */
+}
+.inputStyle input {
+  padding: 2px 5px;
+  height: 34px;
+}
+
+.MuiButton-containedPrimary {
+  background: #007582 !important;
+  border-radius: 2px !important;
+  height: 38px !important;
+}
+.MuiButton-containedPrimary.attachmentSubmit {
+  height: 32px !important;
+  border-radius: 35px !important;
+  padding: 5px 10px;
+  font-size: 12px !important;
+}
+.attachmentMenu .MuiMenu-paper {
+  background-color: #e5e5e5 !important;
+}
+.attachmentButton {
+  border-radius: 16px !important;
+  height: 32px !important;
+  text-transform: capitalize !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  font-size: 12px !important;
+  box-shadow: none !important;
+  padding: 5px 13px !important;
+}
+
+.MuiButton-outlined {
+  border-radius: 2px !important;
+  height: 38px !important;
+  border-color: #cccccc !important;
+  color: #000 !important;
+}
+.virtualAuto input {
+  font-size: 13px;
+}
+.virtualAuto .MuiInputBase-root {
+  padding: 0px !important;
+}
+.form-style .demo-simple-select-standard,
+.form-style .MuiInputBase-input {
+  min-height: 22px;
+  height: 22px;
+}
+.form-style .virtualAuto {
+  width: 100%;
+}
+.form-style .MuiInputBase-root {
+  min-height: 28px;
+}
+.form-style .MuiTypography-caption {
+  line-height: 14px !important;
+  padding: 0px;
+}
+.form-style .MuiSelect-select {
+  padding: 0px 5px !important;
+}
+.form-style td {
+  width: 50%;
+  padding: 0px;
+  border: none;
+  vertical-align: top;
+  padding: 5px;
+}
+.filterMenu .MuiTypography-caption {
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+.filterMenu .MuiTypography-caption.datemenu {
+  margin-bottom: 8px !important;
+}
+.filterMenu .MuiInputBase-root {
+  border-radius: 2px;
+  height: 30px;
+}
+/* .tableWrapper .ReactVirtualized__Table__row{
+  color: inherit;
+  vertical-align: middle;
+  outline: 0px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px, rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px;
+  margin-bottom: -100px;
+  position: relative !important;
+  height: 100px !important;
+  font-size: 14px;
+  text-transform: lowercase;
+} */
+/* .tableWrapper .ReactVirtualized__Table__row div:first-letter{
+  text-transform : uppercase;
+} */
+.tableWrapper .ReactVirtualized__Table__row div:first-child {
+  font-weight: 700;
+}
+/* .enterprise{
+  text-transform: uppercase;
+} */
+.tabdata .css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-top: 0px !important;
+  margin-top: 12px;
+}
+.tableWrapper .ReactVirtualized__Table__rowColumn:nth-child(3) {
+  text-transform: uppercase;
+}
+
+.tableWrapper .ReactVirtualized__Table__rowColumn {
+  white-space: unset;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.tableWrapper .ReactVirtualized__Table__headerColumn {
+  text-align: center;
+}
+.footer .MuiBox-root {
+  padding: 0px !important;
+  margin-bottom: 0px !important;
+  font-size: 10px !important;
+  color: #ccc;
+}
+.titlebar{
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.titlebar h4{
+  margin-top: 0px !important;
+}
+.titlebar .searchControl{
+  margin-top: 5px !important;
+}
+table.MuiTable-root td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+table.MuiTable-root td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+table.MuiTable-root tr.dynamic td:first-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+table.MuiTable-root tr.dynamic:first-child td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 0px;
+}
+table.MuiTable-root tr.dynamic td:last-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+table.MuiTable-root tr.dynamic:last-child td:last-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 10px;
+}
+table.MuiTable-root tr.dynamic:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+table.MuiTable-root tr.dynamic:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+#simple-menu2 .MuiList-root {
+  width: 260px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.fixed tr:first-child td {
+  text-decoration: underline;
+}
+
+.fixed {
+  display: block;
+  overflow: auto;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.attachment svg {
+  padding: 0px 5px;
+}
+.header-container {
+  padding: 15px 15px 0px;
+  width: 100% !important;
+  margin-left: 0px !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+.main-container {
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+    0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  padding: 15px;
+  margin-top: 15px !important;
+  width: 100% !important;
+  margin-left: 0px !important;
+  max-height: 200px;
+  overflow-y: auto;
+  min-height: 103px;
+  word-wrap: break-word !important;
+  font-size: 15px;
+}
+.attachment button {
+  min-width: 37px;
+  color: #000;
+  padding: 0px 5px !important;
+  margin-right: 10px;
+}
+.searchControl {
+  width: 50%;
+  height: 44px;
+}
+.searchControl input {
+  height: 35px;
+  border-radius: 0px;
+  padding: 0px 6px;
+  border: 1px solid #ccc;
+}
+.tableWrapper .ReactVirtualized__Table__headerRow {
+  font-size: 14px;
+}
+.infotip {
+  position: absolute;
+  right: -5px;
+  top: 0px;
+  height: auto !important;
+}
+.btncolor {
+  background: #007582 !important;
+  border-radius: 0px !important;
+}
+.btnwidth {
+  padding: 7px 70px !important;
+}
+.tabdatas {
+  padding: 25px;
+  background: #e5e5e5;
+}
+.tabdatas > .MuiBox-root {
+  background: #fff;
+  border-radius: 10px;
+}
+.tabdata #simple-tabpanel-0 {
+  background: #fff;
+}
+.editbutton button {
+  min-width: 30px;
+  float: left;
+}
+.editbutton svg {
+  float: right;
+  cursor: pointer;
+}
+.updatedBy {
+  text-transform: lowercase;
+}
+
+.updatedBy:first-letter {
+  text-transform: uppercase;
+}
+.button-box {
+  width: 25px;
+  float: left;
+  height: calc(100% + 14px);
+}
+.main-container button.chevron {
+  float: left;
+  padding: 0px;
+  height: 72px;
+  vertical-align: text-bottom;
+  left: -10px;
+}
+.main-container h6 {
+  font-size: 15px;
+  position: relative;
+  word-wrap: break-word !important;
+  padding-right: 25px;
+  line-height: 18.7px;
+  font-weight: 700;
+}
+.main-container .MuiTypography-caption {
+  font-size: 13px;
+  padding-right: 20px;
+}
+.critForm .MuiSelect-select {
+  height: 34px !important;
+}
+.critForm svg {
+  vertical-align: middle;
+}
+/* .main-container span {
+  display: block;
+} */
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+}
+
+.main-container .MuiTypography-caption {
+  font-weight: 700;
+  color: #7f7f7f;
+  line-height: 18px;
+  padding-top: 5px;
+}
+.score {
+  font-size: 19px;
+}
+.score svg {
+  vertical-align: top;
+}
+.main-container h6 svg {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+.subcontainer {
+  background-color: #fff;
+  padding: 0px !important;
+  margin-top: 15px !important;
+  width: 100% !important;
+  margin-left: 0px !important;
+}
+.bground {
+  background: #1976d2;
+  border-radius: 50px;
+  padding: 1px 3px;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  width: 15px;
+  height: 18px;
+  font-size: 12px;
+}
+.sortBy fieldset {
+  display: none;
+}
+.sortBy {
+  border: 1px solid #cacaca;
+  border-radius: 2px;
+}
+.collapseContainer .MuiCollapse-wrapper {
+  border-top: 1px solid #ccc !important;
+  margin-top: 7px;
+}
+.collapseContainer .MuiGrid-container {
+  padding: 15px 0px !important;
+}
+.alignCenter {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 73px;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+.attachMenu {
+  background: #fff;
+  padding: 7px 14px 0px;
+  width: calc(100% - 20px) !important;
+  margin-left: 10px;
+}
+.attachMenu.form {
+  width: 100% !important;
+}
+.form .MuiChip-root {
+  width: 100% !important;
+}
+.attachMenu h5 {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  width: 9em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.attachMenu .fa-1x {
+  font-size: 18px;
+}
+.withcollapse .alignCenter,
+.withcollapse .spanCenter {
+  padding-left: 30px;
+}
+.spanCenter {
+  display: flex !important;
+  /* flex-direction: column !important; */
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+/* .css-13x2423-MuiGrid-root{
+  padding-right: 10px;
+    padding-left: 10px;
+    word-wrap: break-word !important;
+    font-size: 14px;
+} */
+.language:after,
+.language:before {
+  border: none !important;
+}
+/* .language .lang:hover{
+  background-color: #900 !important;
+}
+.language option:hover{
+  background-color: #000 !important;
+} */
+.makeStyles-menuItem-9.Mui-selected {
+  background-color: #cacaca !important;
+}
+.language select {
+  width: 140px;
+  padding: 0px 9px;
+}
+.language fieldset {
+  border: none !important;
+}
+.Mui-selected.lang {
+  background-color: #212121cf !important;
+}
+.menuItem.selected {
+  background-color: #cacaca !important;
+}
